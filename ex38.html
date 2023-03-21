@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function validateEmail(email) {
+    if (!email) {
+      return false;
+    }
+  
+    const at = email.split('@');
+    if (at.length !== 2) {
+      return false;
+    }
+  
+    const dot = at[1].split('.');
+    if (dot.length < 2) {
+      return false;
+    }
+  
+    return true;
+  }
+  
+  const email1 = 'indhuja@example.com';
+  const email2 = 'indhu.ja@example.com';
+  const email3 = 'example.com';
+  const email4 = 'indhu.ja@example';
+  
+  if (validateEmail(email1)) {
+    console.log('The email address is valid');
+  } else {
+    console.log('The email address is not valid');
+  }
+  
+  if (validateEmail(email2)) {
+    console.log('The email address is valid');
+  } else {
+    console.log('The email address is not valid');
+  }
+  
+  if (validateEmail(email3)) {
+    console.log('The email address is valid');
+  } else {
+    console.log('The email address is not valid');
+  }
+  
+  if (validateEmail(email4)) {
+    console.log('The email address is valid');
+  } else {
+    console.log('The email address is not valid');
+  }
+    </script>
+</body>
+</html>

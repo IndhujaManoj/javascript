@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let array = [1, 2, 3, 4, 5];
+
+// remove all elements from the array except the first two
+let firstTwo = array.splice(0, 2);
+
+console.log(firstTwo); 
+
+
+// reset the array to its original value
+array = [1, 2, 3, 4, 5];
+console.log(array)
+
+// create a new array that is a copy of the original array
+let copyArray = array.slice();
+
+// remove all elements from the copy array except the first two
+let firstTwoCopy = copyArray.splice(0, 2);
+
+console.log(firstTwoCopy); 
+console.log(copyArray); 
+
+    </script>
+</body>
+</html>
