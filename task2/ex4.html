@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function pluralize(noun, number) {
+        const isCollectiveNoun = (noun === "sheep" || noun === "geese");
+
+       const pluralizedNoun = isCollectiveNoun ? noun : `${noun}s`;
+       const pluralizedNumber = (number === 1) ? "1" : number;
+
+       return `${pluralizedNumber} ${pluralizedNoun}`;
+}
+
+
+console.log(pluralize("cat", 5)); 
+console.log(pluralize("dog", 1)); 
+console.log(pluralize("sheep", 3)); 
+console.log(pluralize("goose", 2)); 
+
+    </script>
+</body>
+</html>
