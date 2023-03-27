@@ -12,16 +12,19 @@
     <script>
         function digitSum(num) {
             let sum = 0;
-            while (num != 0) {
-                num = Math.floor(num / 10);
-                sum += num % 10;
-               
-            }
-            console.log(sum)
+            while (num > 0) {
+                                
+                sum += num % 10; //lst dig
+                num = Math.floor(num / 10);//rit
+                console.log("sum"+sum)
+            
+                console.log("num"+num)
 
+            }
             return sum
         }
-        digitSum(200)
+        //console.log("mat"+Math.floor(2%10))
+        console.log(digitSum(20))
 
     </script>
 </body>

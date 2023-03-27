@@ -8,24 +8,20 @@
 </head>
 <body>
     <script>
-        function countLetters(word) {
-  let counts = {};
-  for (let i = 0; i < word.length; i++) {
-    let letter = word[i];
-    if (counts[letter] === undefined) {
-      counts[letter] = 1;
-    } else {
-      counts[letter]++;
-    }
-  }
-  return counts;
-}
-
-let word = "hello";
-let letterCounts = countLetters(word);
-for (let letter in letterCounts) {
-  console.log(letter,":", letterCounts[letter]);
-}
+        function countLetters(word){
+            let counts={}
+            for(i=0;i<word.length;i++){
+                let letter=word[i]
+                    counts[letter]=0
+            for(j=0;j<word.length;j++){
+                    if(word[j]===letter){
+                        counts[letter]++
+                    }
+                }
+            }
+            return counts;
+        }
+        console.log(countLetters("helloworld"))
     </script>
 </body>
 </html>

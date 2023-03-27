@@ -10,7 +10,7 @@
 
 <body>
     <script>
-        function printPattern(n) {
+        /*function printPattern(n) {
             for (let i = 0; i <= n; i++) {
                 let str = "";
                 for (let j = 1; j <= i; j++) {
@@ -19,7 +19,18 @@
                 console.log(str);
             }
         }
+        printPattern(5)*/
+        function printPattern(n) {
+            for (i = 0; i < n; i++) {
+                let row = ''
+                for (j = 0; j <= i; j++) {
+                    row += "*"
+                }
+               console.log(row)
+            }
+        }
         printPattern(5)
+
     </script>
 </body>
 
