@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>skill :</label><br>
+    <input type="checkbox" value="js" onkeyup="fun('skills','js',this.value)" ><label>js</label><br>
+    <input type="checkbox" value="c"  onkeyup="fun('skills','c',this.value)" ><label>c</label><br>
+    <input type="checkbox" value="java" onkeyup="fun('skills','java',this.value)"><label>java</label><br>
+    <input type="checkbox" value="PHP" onkeyup="fun('skills','php',this.value)"><label>PHP</label><br>
+    <input type="checkbox" value=".Net" onkeyup="fun('skills','.Net',this.value)"><label>.Net</label><br><br>
+    <label>hobbies : </label><input type="text" id="hobby"><br><br>
+    <p id="out"></p>
+</body>
+<script>
+    let skills = []
+        function show(id,key,value){
+             let skill;
+        for (var i = 0; i < skills.length; i++) {
+            if (skills[i].checked) {
+                skill = skills[i].value
+                total.push(skill)
+            }
+                document.getElementById('out').innerHTML=key +':'+ value
+my_resume.my_skills=skills
+            display()
+        }
+       
+    }  
+</script>
+</html>
