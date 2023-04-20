@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="myForm">
+        <input type="text" id="nameInput" placeholder="Name">
+        <input type="number" id="ageInput" placeholder="Age">
+        <input type="email" id="emailInput" placeholder="Email">
+        <button type="button" id="addBtn" onclick="addRecord()">Add</button>
+        <button type="button" id="submitBtn" onclick="submitForm()">Submit</button>
+        <button type="button" id="clearBtn" onclick="clearForm()">Clear</button>
+      </form>
+      
+      <table id="myTable" border="1">
+        <thead>
+          <tr>￼
+
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <!-- Table body content will be populated dynamically -->
+        </tbody>
+      </table>
+      <script src="tab.js"></script>
+</body>
+</html>

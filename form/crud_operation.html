@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <h1 style="text-align: center;">FORM</h1>
     <form id="form">
         <label>Name :</label>
         <input type="text" id="name"><br><br>
@@ -89,10 +90,9 @@
 
         editCell.innerHTML = '<button onclick="editRowTable(this)">Edit</button>';
         deleteCell.innerHTML = '<button onclick="deleteRowTable(this)">Delete</button>';
-
     }
     function edit_row(name, email, password, gender, my_skill) {
-        selectedRow.cells[0].innerHTML = name;
+        selectedRow.cells[0].innerHTML = name;//after edited new valued
         selectedRow.cells[1].innerHTML = email;
         selectedRow.cells[2].innerHTML = password;
         selectedRow.cells[3].innerHTML = gender;
@@ -104,11 +104,11 @@
     }
     function deleteRowTable(button) {
         var row = button.parentNode.parentNode;
-        row.parentNode.removeChild(row);
+        row.remove()
     }
     function editRowTable(button) {
         selectedRow = button.parentNode.parentNode;
-        document.getElementById("name").value = selectedRow.cells[0].innerHTML;
+        document.getElementById("name").value = selectedRow.cells[0].innerHTML;// when edit button pressed=> table name go to form
         document.getElementById("email").value = selectedRow.cells[1].innerHTML;
         document.getElementById("password").value = selectedRow.cells[2].innerHTML;
         document.getElementById("gender").value = selectedRow.cells[3].innerHTML;

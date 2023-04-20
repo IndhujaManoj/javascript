@@ -93,4 +93,3 @@ let myObj={
     console.log(names,"total marks:",finds)
 //})
 
-

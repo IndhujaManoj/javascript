@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration Form</title>
+	<script>
+		var selectedRow = null;
+		
+		function submitForm() {
+            // event.preventDefault();
+			var name = document.getElementById("name").value;
+			var email = document.getElementById("email").value;
+			var password = document.getElementById("password").value;
+			
+			if (selectedRow == null) {
+				addRow(name, email, password);
+			} else {
+				editRow(name, email, password);
+			}
+			
+			clearForm(name);
+		}
+		
+		function addRow(name, email, password) {
+			var table = document.getElementById("table");
+			var row = table.insertRow();
+			var nameCell = row.insertCell(0);
+			var emailCell = row.insertCell(1);
+			var passwordCell = row.insertCell(2);
+			var editCell = row.insertCell(3);
+			var deleteCell = row.insertCell(4);
+			nameCell.innerHTML = name;
+			emailCell.innerHTML = email;
+			passwordCell.innerHTML = password;
+			editCell.innerHTML = '<button onclick="editRowFromTable(this)">Edit</button>';
+			deleteCell.innerHTML = '<button onclick="deleteRowFromTable(this)">Delete</button>';
+		}
+		
+		function editRow(name, email, password) {
+			selectedRow.cells[0].innerHTML = name;
+			selectedRow.cells[1].innerHTML = email;
+			selectedRow.cells[2].innerHTML = password;
+			selectedRow = null;
+		}
+		
+		function clearForm() {
+            name.innerHTML= "";
+			document.getElementById("name").value = "";
+			 document.getElementById("email").value = "";
+			 document.getElementById("password").value = "";
+		}
+		
+		function editRowFromTable(button) {
+            console.log("data",button.parentNode.parentNode)
+			selectedRow = button.parentNode.parentNode;
+			document.getElementById("name").value = selectedRow.cells[0].innerHTML;
+			document.getElementById("email").value = selectedRow.cells[1].innerHTML;
+			document.getElementById("password").value = selectedRow.cells[2].innerHTML;
+		}
+		
+		function deleteRowFromTable(button) {
+            console.log("data",button)
+			var row = button.parentNode.parentNode;
+			row.parentNode.removeChild(row);
+		}
+	</script>
+</head>
+<body>
+	<h1>Registration Form</h1>
+	<label for="name">Name:</label>
+	<input type="text" id="name"><br><br>
+	
+	<label for="email">Email:</label>
+	<input type="email" id="email"><br><br>
+	
+	<label for="password">Password:</label>
+	<input type="password" id="password"><br><br>
+    <input type="reset" value="Reset">
+	
+      
+	<button onclick="submitForm()">Submit</button>
+	
+	<br><br>
+	
+	<table border="1" id="table">
+		<tr>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Password</th>
+			<th>Edit</th>
+			<th>Delete</th>
+		</tr>
+	</table>
+</body>
+</html>

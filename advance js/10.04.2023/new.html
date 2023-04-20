@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body><label>Name :</label>
+    <input type="text" id="name"><br><br>
+    <lable>Email :</lable>
+    <input type="text" id="email"><br><br>
+
+    <lable>Password :</lable>
+    <input type="password" id="password"><br><br>
+
+    <label>Gender :</label>
+    <select id="gender">
+        <option>MALE</option>
+        <option>FEMALE</option>
+
+    </select><br><br>
+
+    <label>skills</label><br>
+    <input type="checkbox" value="js" name="skills"><label>js</label><br>
+    <input type="checkbox" value="c" name="skills"><label>c</label><br>
+    <input type="checkbox" value="java" name="skills"><label>java</label><br><br>
+    <button onclick="Submit()">Submit</button>
+    <button onclick="clear_form()">Clear</button><br><br>
+    <table border="1" id="table">
+<tr>
+    <td>Name</td>
+    <td>Email</td>
+    <td>Password</td>
+    <td>Gender</td>
+    <td>Skills</td>
+    <td>Edit</td>
+    <td>Delete</td>
+</tr>
+    </table>
+</body>
+<script>
+    var selectedRow=null
+    function Submit(){
+       let name=document.getElementById('name').value;
+       let email=document.getElementById('email').value;
+       let password=document.getElementById('password').value;
+       let gender=document.getElementById('gender').value;
+       let my_skill=[]
+    var ski = document.getElementsByName('skills')
+        var skill;
+        for (var i = 0; i < ski.length; i++) {
+            if (ski[i].checked) {
+                skill = ski[i].value
+                my_skill.push(skill)
+            }
+          }
+
+
+
+       if(selectedRow==null){
+        add_row(name,email,password,gender,my_skill)
+       }
+       else{
+        edit_row(name,email,password,gender,my_skill)
+       }
+       clear_form(name)
+    }
+    function add_row(name,email,password,gender,my_skill){
+        let table=document.getElementById('table')
+        var row=table.insertRow()
+        var nameCell=row.insertCell(0)
+        var emailCell=row.insertCell(1)
+        var passwordCell=row.insertCell(2)
+        var genderCell=row.insertCell(3)
+        var skillCell=row.insertCell(4)
+        var editCell = row.insertCell(5);
+		var deleteCell = row.insertCell(6);
+        nameCell.innerHTML=name;
+        emailCell.innerHTML=email;
+        passwordCell.innerHTML=password;
+        genderCell.innerHTML=gender;
+        skillCell.innerHTML=my_skill;
+    
+        editCell.innerHTML = '<button onclick="editRowTable(this)">Edit</button>';
+		deleteCell.innerHTML = '<button onclick="deleteRowTable(this)">Delete</button>';
+
+    }
+    function edit_row(name,email,password,gender){
+            selectedRow.cells[0].innerHTML = name;
+            selectedRow.cells[1].innerHTML = email;
+            selectedRow.cells[2].innerHTML = password;
+            selectedRow.cells[3].innerHTML = gender;
+            selectedRow.cells[4].innerHTML = my_skill;
+
+
+        //console.log(selectedRow,"a")
+        selectedRow=null
+    }
+    function clear_form(){
+        name.innerHTML= "";
+		document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+		document.getElementById("password").value = "";
+        document.getElementById("gender").value = "";
+        document.getElementsByName('skill').value=''
+
+    }
+    function deleteRowTable(button){
+        var row = button.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+
+
+    }
+    function editRowTable(button) {
+			selectedRow = button.parentNode.parentNode;
+			document.getElementById("name").value = selectedRow.cells[0].innerHTML;
+            document.getElementById("email").value = selectedRow.cells[1].innerHTML;
+            document.getElementById("password").value = selectedRow.cells[2].innerHTML;
+            document.getElementById("gender").value = selectedRow.cells[3].innerHTML;
+            document.getElementsByName('skill').value=selectedRow.cells[4].innerHTML;
+        }
+
+
+
+</script>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="form">
+    <h1>Register</h1><br><br>
+    <label>Name:</label><input type="text" id="name" placeholder="Enter your name" /><br><br>
+    <label>Email:</label><input type="text" id="email" placeholder="Enter your mail"/><br><br>
+    <label>Password:</label><input type="password" id="pass" /><br><br>
+    <label>Phone:</label><input type="text" id ="phone" placeholder="Enter your number"/><br><br>
+    <label>Gender:</label>
+    <select id="gender">
+        <option>Male</option>
+        <option>Female</option>
+    </select><br><br>
+    <label>Skills:</label><br>
+    <input type="checkbox"  name="skills" value="JS"/>JS<br><br>
+    <input type="checkbox"  name="skills" value="HTML"/>HTML<br><br>
+    <input type="checkbox"  name="skills" value="CSS"/>CSS<br><br>
+
+    </form>
+    <button onclick="regisFun(),cleanTable()">submit</button><br><br>
+
+    
+     
+     <table border=2 id='table'>
+        <thead>
+          <tr>
+            <th>name</th>
+            <th>email</th>
+            <th>password</th>
+            <th>phone</th>
+            <th>gender</th>
+            <th>skills</th>
+            </tr>
+        </thead>
+        
+        <tbody id='bname'>
+         
+        </tbody>
+        
+      </table>  
+            
+        
+</body>
+<script>
+    let table=document.getElementById("table")
+    //let users1=[]
+    function regisFun(){
+        let users=[];
+        let name=document.getElementById('name').value;
+        let email=document.getElementById('email').value; 
+        let password=document.getElementById('pass').value; 
+        let phonenumber=document.getElementById('phone').value; 
+        let gender=document.getElementById('gender').value;
+        let skill=document.getElementsByName('skills');
+        allskill=[]
+        for(i=0;i<skill.length;i++){
+            if(skill[i].checked){
+                allskill.push(skill[i].value);
+            }
+        }
+        let  obj={
+            name:name,
+            email:email,
+            password:password,
+            phonenumber:phonenumber,
+            gender:gender,
+            skills:allskill,
+            
+        }
+        users.push(obj);
+        console.log(users);
+        //users1.push(obj);
+        //console.log(users1)
+
+    
+
+
+
+    //function useRget(){
+        for(i=0;i<users.length;i++){
+      let user =users[i]
+    
+    row=document.createElement('tr')
+    
+    let name=document.createElement('td')
+    name.textContent=user.name
+    row.appendChild(name)
+    let email=document.createElement('td')
+    email.textContent=user.email
+    row.appendChild(email)
+    let password=document.createElement('td')
+    password.textContent=user.password
+    row.appendChild(password)
+    let phonenumber=document.createElement('td')
+    phonenumber.textContent=user.phonenumber
+    row.appendChild(phonenumber)
+    let gender=document.createElement('td')
+    gender.textContent=user.gender
+    row.appendChild(gender)
+    let skills=document.createElement('td')
+    skills.textContent=user.skills
+    row.appendChild(skills)
+    let editbutton=document.createElement('button')
+    editbutton.textContent="edit"
+    editbutton.addEventListener('click',editTable)
+    row.appendChild(editbutton)
+    let deletebutton=document.createElement('button')
+    deletebutton.textContent="delete"
+    deletebutton.addEventListener('click',delEte)
+    
+
+    row.appendChild(deletebutton)
+    
+    table.appendChild(row)
+    }
+}
+    function cleanTable(){
+    event.preventDefault()
+          
+    form.reset()
+    }
+
+    function editTable(){
+        //event.preventDefault()
+          name=document.getElementById('name').value
+           /* email=email,
+            password=password,
+            phonenumber=phonenumber,
+            gender=gender,
+            skills=allskill*/
+        row.remove()
+    }
+    function delEte(){
+        row.remove()
+    }
+    
+    
+
+</script>    
+</html>

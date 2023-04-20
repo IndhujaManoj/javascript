@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="myForm">
+        <input type="text" id="nameInput" placeholder="Name" /><br><br>
+        <input type="text" id="mailInput" placeholder="Mail" /><br><br>
+        <input type="password" id="passInput" placeholder="password"><br><br>
+        <label>Gender</label>
+        <select id="genderInput">
+            <option>MALE</option>
+            <option>FMALE</option>
+
+        </select><br><br>
+        <label>skills</label><br>
+        <input type="checkbox" value="js" name="skills"><label>js</label><br>
+        <input type="checkbox" value="c" name="skills"><label>c</label><br>
+        <input type="checkbox" value="java" name="skills"><label>java</label><br><br>
+        
+        <button type="submit" id="submitButton">Add</button>
+        <button type="button" id="clearButton">Clear</button><br><br>
+      </form>
+      
+      <table id="myTable" border="1">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>mail</th>
+            <th>Password</th>
+            <th>Gender</th>
+            <th>Skills</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+</body>
+<script src="form.js"></script>
+</html>
