@@ -46,4 +46,4 @@ for(i=0;i<res.length;i++){
     table.appendChild(row)
 }
 
-}))
+}));
