@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="title">Welcome</h1>
+    <button id="btn">Alter</button>
+    <button id="delete">Delete</button>
+</body>
+<script>
+    let btn = document.getElementById("btn");
+    let deleteBtn = document.getElementById("delete");
+    let title = document.getElementById("title");
+    btn.addEventListener('click',handleButton);
+    deleteBtn.addEventListener('click',handleDelete);
+    function handleDelete(){
+        localStorage.clear();
+    }
+    function handleButton(){
+        var name=prompt("Enter your Name")
+        localStorage.setItem("userName",name);
+         title.innerHTML="welcome "+name
+    }
+    if(localStorage.getItem("userName")){
+        title.innerHTML="welcome"+" "+localStorage.getItem("userName")
+    }
+</script>`
+</html>

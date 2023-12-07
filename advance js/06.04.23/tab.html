@@ -19,7 +19,7 @@
             })
             .then(data => {
                 console.log('Data:', data);
-
+                
                 let table = `
                     <table>
                         <tr>
@@ -27,19 +27,19 @@
                             <th>User ID</th>
                             <th>Title</th>
                             <th>Completed</th>
-                        </tr>`;
-
-                data.forEach(item => {
-                    table += `
-                        <tr>
-                            <td>${item.id}</td>
-                            <td>${item.userId}</td>
-                            <td>${item.title}</td>
-                            <td>${item.completed}</td>
-                        </tr>`;
-                });
-
-                table += `</table>`;
+                        </tr>
+                        ${data.map((item) => {
+                            if (item.completed&&item.id>=10&&item.id<=70) {
+                                return `
+                                    <tr>
+                                        <td>${item.id}</td>
+                                        <td>${item.userId}</td>
+                                        <td>${item.title}</td>
+                                        <td>${item.completed}</td>
+                                    </tr>`;
+                            }
+                        }).join('')}
+                    </table>`;
                 document.getElementById("demo").innerHTML = table;
             })
             .catch(err => {
