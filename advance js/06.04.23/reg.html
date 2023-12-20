@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="name"/>
+    <input type="text" id="password"/>
+    <button id="btn" onclick="submit()">Submit</button>
+
+    <script>
+        function submit(){
+            let nameInput = document.getElementById("name");
+            let passwordInput = document.getElementById("password");
+            
+            let name = nameInput.value;
+            let password = passwordInput.value;
+            
+            if(name === "" || password === ""){
+                alert("Please enter name and password");
+            } else {
+                let users = JSON.parse(localStorage.getItem("users")) || [];
+                users.push({ "name": name, "password": password });
+                
+                localStorage.setItem("users", JSON.stringify(users));
+                
+                // Clear input values
+                nameInput.value = "";
+                passwordInput.value = "";
+            }
+        }
+    </script>
+</body>
+</html>

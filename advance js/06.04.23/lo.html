@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="hi">hi</h1>
+    <h2 id="num">num</h2>
+    <button onclick="clearStorage()">clear</button>
+    <button onclick="clearName()">clear Name</button>
+</body>
+<script>
+    let a=prompt("Enter a number")
+    localStorage.setItem("num",a)
+    let name=prompt("Enter your name")
+    get_num=localStorage.getItem("num")
+    localStorage.setItem("name",name + " is my name")
+    //  let get_name=localStorage.getItem("name")
+    let get_name = JSON.parse(localStorage.getItem("name"));
+    let h1=document.getElementById("hi").innerHTML=get_name
+    function clearStorage(){
+        localStorage.clear()
+    }
+    function clearName(){
+        localStorage.removeItem("name")
+    }
+    
+</script>
+</html>
